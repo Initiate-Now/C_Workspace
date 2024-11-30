@@ -46,13 +46,13 @@
 * It consists of four main stages: Fetch, Decode, Execute, and Store.
 <img alt="Fetch_execute_Cycle" src="Images\Fetch_execute_cycle.png" width="300" height="200"/>
 
-     **Fetch :** The Control Unit (CU) initiates the fetch stage by using the Program Counter (PC) to store the address of the next instruction to be executed. This address is sent to the Memory Address Register (MAR), which holds the address of the required instruction in memory.
+    **Fetch :** The Control Unit (CU) initiates the fetch stage by using the Program Counter (PC) to store the address of the next instruction to be executed. This address is sent to the Memory Address Register (MAR), which holds the address of the required instruction in memory.
 
-     **Decode :** Once the instruction is in the CIR (Current Instruction Register), the Control Unit (CU) decodes it to determine what operation needs to be performed. The decoded instruction identifies whether data needs to be retrieved, stored, or manipulated.
+    **Decode :** Once the instruction is in the CIR (Current Instruction Register), the Control Unit (CU) decodes it to determine what operation needs to be performed. The decoded instruction identifies whether data needs to be retrieved, stored, or manipulated.
 
-     **Execute :** The Arithmetic Logic Unit (ALU) performs the necessary calculations or logical operations, depending on the instruction. For example, if the instruction involves an arithmetic operation (addition, subtraction, etc.), the ALU processes the data.
+    **Execute :** The Arithmetic Logic Unit (ALU) performs the necessary calculations or logical operations, depending on the instruction. For example, if the instruction involves an arithmetic operation (addition, subtraction, etc.), the ALU processes the data.
 
-     **Store :** After execution, the result in the ACC (Accumulator) may need to be stored back into memory or passed to another register for further operations.
+    **Store :** After execution, the result in the ACC (Accumulator) may need to be stored back into memory or passed to another register for further operations.
 
 ## High Level Language
 
