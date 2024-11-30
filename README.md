@@ -24,12 +24,3 @@
 * To create a strong foundation for more advanced programming concepts and applications.
 
 Whether you are a student, an aspiring programmer, or someone brushing up on the basics of C, this repository offers valuable resources to get started and progress effectively.
-
-
-
-
-
-
-
-
-
