@@ -107,7 +107,7 @@ The preprocessor expands macros and includes the necessary files, simplifying th
 
 **Automation:** Macros help reduce repetitive coding tasks.
 
-## 3.Compilation
+## 3. Compilation
 
 This stage translates the preprocessed source code into assembly code. 
 
@@ -178,7 +178,7 @@ Output (Simplified Assembly):
 * The assembly code is specific to the target architecture.
 * Compilation transforms the source code into a lower-level representation, which is one step closer to machine code.
 
-## 4.Assembling
+## 4. Assembling
 
 The assembly process is the step in the compilation pipeline where the assembly code, generated during the compilation stage, is translated into machine code (binary instructions) that the processor can execute.
 
@@ -256,11 +256,124 @@ Information for the linker to adjust addresses when combining object files into 
 * **Metadata**
 Debugging information, if included.
 
-## 5.linking
+## 5. Linking
 
 The linker is a crucial component in the build process that combines multiple object files and libraries into a single executable file or a shared library. Its main responsibility is to resolve references between code modules and produce a fully functional binary.
 
 
+### Responsibilities of the Linker
+
+**1.Symbol Resolution**
+
+* The linker matches symbol definitions (e.g., functions or global variables provided in one file) with symbol references (e.g., calls to those functions or accesses to variables in another file).
+* For example:
+
+        // File1.c
+        void foo() {
+            // ...
+        }
+
+        // File2.c
+        void bar() {
+            foo(); // Symbol 'foo' is resolved here by the linker.
+        }
+
+**2.Relocation**
+
+* The linker adjusts memory addresses in the object files so that all code and data fit into a single memory space.
+* For instance:
+  * If two object files define functions at address 0x1000, the linker adjusts one of them to avoid overlap.
+* It also resolves references to symbols by updating them to point to their correct addresses.
+
+**3.Combining Object Files**
+
+* The linker combines machine code from different object files into a single binary.
+* Sections like .text (code) and .data (initialized data) from all input files are merged appropriately.
+
+**4.Library Linking**
+
+* If the program uses external libraries (e.g., printf from the C standard library), the linker locates the library code and includes it in the final binary.
+* Libraries can be:
+  * **Static libraries** (e.g., .a or .lib files): Included directly in the executable.
+  * **Shared libraries** (e.g., .so or .dll files): Referenced at runtime instead of being included in the binary.
+
+**5.Output Generation**
+
+* The linker generates the final output:
+   * **Executable file:** A runnable program (e.g., .exe, ELF file).
+   * **Shared library:** A dynamically loaded library (e.g., .so, .dll).
+   * **Map file (optional):** A text file listing symbol locations and memory usage.
+
+### Types of Linking
+
+**1.Static Linking**
+
+* The linker includes all the required code from libraries into the final executable.
+* Pros:
+  * No dependency on external libraries at runtime.
+  * Faster program startup.
+* Cons:
+  * Larger executable size.
+  * Updating libraries requires rebuilding the executable.
+
+**2.Dynamic Linking**
+
+* The linker resolves references to shared libraries but does not include their code in the executable. Instead, the program loads these libraries at runtime.
+* Pros:
+  * Smaller executable size.
+  * Easier library updates without recompilation.
+* Cons:
+  * Dependency on library availability at runtime.
+  * Slightly slower startup time.
+
+### Example of Linking
+
+**Input Object Files:**
+
+main.o:
+
+    extern _printf
+    section .text
+    global _main
+    _main:
+        push dword hello
+        call _printf
+        add esp, 4
+        ret
+
+hello.o:
+
+    section .data
+    global hello
+    hello db "Hello, World!", 0
+
+**Output Executable:** 
+
+The linker combines these files, resolves _printf to its address in the standard library, and adjusts the reference to hello so _main knows its correct address.
+
+### Linker Options (Example with GCC)
+
+Using GCC to link object files:
+
+    gcc -o program main.o hello.o -lc
+
+* -o program: Output file name.
+* main.o hello.o: Input object files.
+* -lc: Link the C standard library (libc).
+
+## 6. Executable
+
+* An executable file is a file that can be run on a computer without further processing. It contains:
+
+  * **Machine code:** Instructions that the CPU can execute.
+  * **Metadata:** Information required by the OS to load and run the program.
+  * **Dependencies:** References to libraries or system resources used by the program.
+
+### Examples:
+
+* On Windows: .exe or .dll files.
+* On Linux/Unix: ELF (.out or no specific extension).
+* On MacOS: Mach-O files.
 
 
 
