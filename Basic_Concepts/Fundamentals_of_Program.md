@@ -44,7 +44,7 @@
 
 * The machine instruction cycle is the process a CPU follows to execute instructions stored in memory. 
 * It consists of four main stages: Fetch, Decode, Execute, and Store.
-<img alt="Fetch_execute_Cycle" src="Images\Fetch_execute_cycle.png" width="300" height="200"/>
+<img alt="Fetch_execute_Cycle" src="docs\Fetch_execute_cycle.png" width="300" height="200"/>
 
    **Fetch:** The Control Unit (CU) initiates the fetch stage by using the Program Counter (PC) to store the address of the next instruction to be executed. This address is sent to the Memory Address Register (MAR), which holds the address of the required instruction in memory.
 

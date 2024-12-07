@@ -2,7 +2,7 @@
 
 The compilation is the process of converting the source code of the C language into machine code. As C is a mid-level language, it needs a compiler to convert it into an executable code so that the program can be run on our machine.
 
-<img alt="Compilation_Process" src="Images\Compilation_Process.png" width="300" height="400"/>
+<img alt="Compilation_Process" src="docs\Compilation_Process.png" width="300" height="400"/>
 
 ## 1. Editing Source File
 
