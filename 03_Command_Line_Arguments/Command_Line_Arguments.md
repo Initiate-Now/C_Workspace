@@ -1,6 +1,7 @@
 # Command Line Arguments
 
-In C programming, command-line arguments allow a program to accept input parameters directly from the command line when the program is executed. This is useful for passing information to the program without hardcoding it or prompting the user during runtime.
+In C programming, command-line arguments allow a program to accept input parameters directly from the command line when the program is executed.
+This is useful for passing information to the program without hardcoding it or prompting the user during runtime.
 
 ## main() Function with Command-Line Arguments
 
